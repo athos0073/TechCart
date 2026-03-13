@@ -1,4 +1,3 @@
-// Validaciones del formulario de registro
 document.addEventListener('DOMContentLoaded', () => {
     const registerForm = document.getElementById('registerForm');
     const passwordInput = document.getElementById('password');
@@ -6,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const strengthBar = document.getElementById('strengthBar');
     const strengthText = document.getElementById('strengthText');
     
-    // Validar fuerza de contraseña en tiempo real
     passwordInput.addEventListener('input', () => {
         const password = passwordInput.value;
         const fuerza = calcularFuerzaContrasena(password);
@@ -21,41 +19,35 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = passwordInput.value;
         const confirmPassword = confirmPasswordInput.value;
         
-        // Validar campos no vacíos
         if (!nombre || !email || !password || !confirmPassword) {
             mostrarMensaje('Por favor, completa todos los campos', 'error');
             return;
         }
         
-        // Validar formato de email
         if (!validarEmail(email)) {
             mostrarMensaje('Por favor, ingresa un correo electrónico válido', 'error');
             return;
         }
         
-        // Validar contraseña
         const fuerza = calcularFuerzaContrasena(password);
         if (fuerza.nivel === 0) {
             mostrarMensaje('La contraseña debe contener mayúsculas, minúsculas, números y signos', 'error');
             return;
         }
         
-        // Validar que las contraseñas coincidan
         if (password !== confirmPassword) {
             mostrarMensaje('Las contraseñas no coinciden', 'error');
             return;
         }
         
-        // Obtener usuarios registrados
+        
         let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
         
-        // Verificar si el email ya está registrado
         if (usuarios.some(u => u.email === email)) {
             mostrarMensaje('Este correo electrónico ya está registrado', 'error');
             return;
         }
         
-        // Guardar nuevo usuario
         const nuevoUsuario = {
             nombre: nombre,
             email: email,
@@ -73,13 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2000);
     });
     
-    // Función para validar email
     function validarEmail(email) {
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return regex.test(email);
     }
     
-    // Función para calcular fuerza de contraseña
     function calcularFuerzaContrasena(password) {
         let puntuacion = 0;
         const criterios = {
@@ -90,12 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
             longitud: password.length >= 8
         };
         
-        // Calcular puntuación basada en criterios cumplidos
         for (let criterio in criterios) {
             if (criterios[criterio]) puntuacion++;
         }
         
-        // Determinar nivel de fuerza
         let nivel = 0;
         let texto = '';
         let color = '';
@@ -114,7 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
             color = '#28a745';
         }
         
-        // Verificar si cumple con todos los requisitos básicos
         const requisitosBasicos = criterios.mayuscula && criterios.minuscula && 
                                   criterios.numero && criterios.signo;
         
@@ -127,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return { nivel, texto, color, puntuacion };
     }
     
-    // Función para actualizar el indicador de fuerza
     function actualizarIndicadorFuerza(fuerza) {
         strengthBar.style.width = fuerza.nivel === 0 ? '100%' : (fuerza.puntuacion * 20) + '%';
         strengthBar.style.backgroundColor = fuerza.color;
@@ -135,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
         strengthText.style.color = fuerza.color;
     }
     
-    // Función para mostrar mensajes
     function mostrarMensaje(texto, tipo) {
         const mensajeAnterior = document.querySelector('.alert');
         if (mensajeAnterior) {
