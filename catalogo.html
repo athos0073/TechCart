@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechCourses - Catálogo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/catalogo.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>TechCourses</h1>
+            <div class="user-menu">
+                <button class="user-icon" id="userMenuBtn">👤</button>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="#" id="cartOption">🛒 Carrito</a>
+                    <a href="#" id="settingsOption">⚙️ Configuración</a>
+                    <a href="#" id="logoutOption">🚪 Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="catalogo">
+            <h2>Catálogo de Cursos Tecnológicos</h2>
+            <div class="cursos-container" id="cursosContainer">
+                <!-- Los cursos se cargarán dinámicamente con JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <script src="js/usuario.js"></script>
+    <script src="js/catalogo.js"></script>
+</body>
+</html>

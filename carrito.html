@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechCourses - Carrito</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>TechCourses</h1>
+            <div class="user-menu">
+                <button class="user-icon" id="userMenuBtn">👤</button>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="catalogo.html">🏠 Catálogo</a>
+                    <a href="#" id="settingsOption">⚙️ Configuración</a>
+                    <a href="#" id="logoutOption">🚪 Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="carrito">
+            <h2>Tu Carrito de Compras</h2>
+            <div class="carrito-container" id="carritoContainer">
+                <!-- Los cursos del carrito se cargarán dinámicamente -->
+            </div>
+            <div class="carrito-total" id="carritoTotal">
+                <!-- Total del carrito -->
+            </div>
+        </section>
+    </main>
+
+    <script src="js/usuario.js"></script>
+    <script src="js/carrito.js"></script>
+</body>
+</html>
