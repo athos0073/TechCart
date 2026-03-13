@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 nombre: 'Inteligencia Artificial',
                 descripcion: 'Fundamentos de IA, redes neuronales y aprendizaje profundo.',
                 precio: 399.99,
-                imagen: 'img/inteligencia-artificial.jpg'
+                imagen: 'img/Inteligencia-artificial-y-consultoria.jpg'
             }
         ];
         
